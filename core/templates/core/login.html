@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Stock Price Tracker</title>
+<html>
+
+<head>
+    <title>Login</title>
     <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.rtl.min.css"
-    integrity="sha384-+4j30LffJ4tgIMrq9CwHvn0NjEvmuDCOfk6Rpg2xg7zgOxWWtLtozDEEVvBPgHqE" crossorigin="anonymous">
+        integrity="sha384-+4j30LffJ4tgIMrq9CwHvn0NjEvmuDCOfk6Rpg2xg7zgOxWWtLtozDEEVvBPgHqE" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  </head>
-  <style>
-html {
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    html {
   height: 100%;
 }
 body {
@@ -29,7 +27,6 @@ body {
   left: 50%;
   width: 400px;
   padding: 40px;
-  margin-left: 170px;
   transform: translate(-50%, -50%);
   background: rgba(32, 32, 32, 0.5);
   box-sizing: border-box;
@@ -178,12 +175,6 @@ body {
     color: white;
     display: flex;
 }
-.bse{
-    margin:2px 0px 20px 120px;
-}
-.nse{
-   margin: 2px 0px 20px 50px;
-}
 @keyframes btn-anim4 {
   0% {
     bottom: -100%;
@@ -204,86 +195,70 @@ body {
   align-items: center;
   flex-direction: column;
 }
+#register, #messages{
+    color: white;
+}
+#messages{
+  margin-left: 35px;
+}
+.bottom{
+  margin: 430px 0px 0px 445px;
+}
 #footer {
   color: rgb(255, 255, 255);
-  margin: 3% 0% 0% 38%;
+  margin: 5% 0% 0% 36%;
   font-size: 1rem;
   font-weight: 300;
 }
-#img{
-  opacity: 30%;
-  margin: 10px 0px 0px 18px;
-}
-#img2{
-  margin: 0px 0px 0px 10px;
-}
-</style> 
+</style>
 <body>
-    {% load socialaccount %}
-   <!-- <h1 id="head">Stock Price Tracker</h1>
-    <form  action="./home" method="get" class="form">
-        <input type="radio" id="choice" name="choice" value="nse">
-        <label for="choice1">NSE</label><br>
-        <input type="radio" id="choice" name="choice" value="bse">
-        <label for="choice2">BSE</label><br>
-        <input type="text" name="company" id="company">
-        <input type="text" name="price" id="price">
-        <input type="email" name="email" id="email">
-        <input type="submit" value="Submit">
-        <a href="{% provider_login_url 'google' method = 'oauth2' %}"><h3>Login</h3></a>
-      </form>-->
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-        <img id="img2" src="/static/logo2.png" alt="logo">
-        <a class="navbar-brand" href="#">Live Stock Price Tracker</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <img src="/static/logo.png" id="img">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <img id="img2" src="/static/logo2.png" alt="logo">
+                <a class="navbar-brand" href="#">Live Stock Price Tracker</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/company_list">Company List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     <div class="login-box">
-        <h2>Stock Price Tracker</h2>
-        <form  action="/home" method="get">
-          {% csrf_token %}
-            <div class="user">
-                <input type="radio" id="choice" name="choice" required="" value="nse" class="nse">
-                <label for="choice1">NSE</label><br>
-                <input type="radio" id="choice" name="choice" required="" value="bse" class="bse">
-                <label for="choice2">BSE</label><br>
+        <h2>Login</h2>
+        <form action="" method="get">
+            {% csrf_token %}
+            <div class="user-box">
+                <input type="text" id="username" name="username">
+                <label>Email</label>
             </div>
             <div class="user-box">
-                <input type="text" name="company" required="" id="company">
-                <label>Company Name</label>
+            <input type="password" name="password" >
+                <label>Password</label>
             </div>
-            <div class="user-box">
-                <input type="text" name="price" required="" id="price">
-                <label>Expected Price</label>
-            </div>
-            <input id="submit" type="submit" value="Subscribe">
+            <input id="submit" type="submit" value="Login">
         </form>
-      </div>
-      <footer>
+    </div>
+    <div class="bottom"> 
+    <a id="register" href="http://127.0.0.1:8000/">New to StockPriceTracker? Create an account</a>
+    </div>
+    <footer>
       <p id="footer">&copy;2022 Riddhesh Patil | All Rights Reserved</p>
-      </footer>
-      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </footer>
 </body>
+
 </html>

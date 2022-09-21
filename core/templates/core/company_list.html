@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company List</title>
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-+4j30LffJ4tgIMrq9CwHvn0NjEvmuDCOfk6Rpg2xg7zgOxWWtLtozDEEVvBPgHqE" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#1a2840, #325277);
+  }
+   .nse{
+    float: left;
+    margin-left: 150px;
+   }
+   .bse{
+    float: right;
+    margin-right: 150px;
+   }
+   h2, h4{
+    color: white;
+   }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <img id="img2" src="/static/logo2.png" alt="logo">
+            <a class="navbar-brand" href="#">List of Companies</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/login">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/company_list">Company List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="nse">
+    <h2>NSE</h2>
+    {% for val in myList %}
+      <h4>{{val}}</h4>
+    {% endfor %}
+    </div>
+    <div class="bse">
+        <h2>BSE</h2>
+        {% for val in myList2 %}
+        <h4>{{val}}</h4>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
